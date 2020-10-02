@@ -196,150 +196,76 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 		</div>
-		<!-- //login -->
-		<!-- register -->
-		<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content modal-content-2">
-					<div class="modal-header text-center">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="login px-4 mx-auto mw-100">
-							<h5 class="text-center mb-4">Register Now</h5>
-							<form action="#" method="post">
-								<div class="form-group">
-									<label>Your Name</label>
-									<input type="text" class="form-control" name="name" placeholder="" required="">
-								</div>
-								<div class="form-group">
-									<label>Email</label>
-									<input type="email" class="form-control" name="email" placeholder="" required="">
-								</div>
-								<div class="form-group">
-									<label class="mb-2">Password</label>
-									<input type="password" class="form-control" name="password" id="password1" placeholder="" required="">
-								</div>
-								<div class="form-group">
-									<label>Confirm Password</label>
-									<input type="password" class="form-control" name="password" id="password2" placeholder="" required="">
-								</div>
-								<button type="submit" class="btn btn-primary submit mb-4">Register</button>
-								<p class="text-center pb-2">
-									<a href="#" class="text-white">By clicking Register, I agree to your terms</a>
-								</p>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- //register -->
-		<!-- //modal -->
-	</div>
-	<!-- //header 2 -->
-
-	<!-- banner 2 -->
-	<div class="inner-banner-w3ls">
+		@extends('layouts/integrer')
 		<div class="container">
-
-		</div>
-		<!-- //banner 2 -->
-	</div>
-	<!-- page details -->
-	<div class="breadcrumb-agile">
-		<div aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item">
-					<a href="index.html">Home</a>
-				</li>
-				<li class="breadcrumb-item active" aria-current="page">Appointment</li>
-			</ol>
-		</div>
-	</div>
-	<!-- //page details -->
-
-	<!-- contact -->
-	<div class="appointment py-5">
-		<div class="py-xl-5 py-lg-3">
-			<div class="w3ls-titles text-center mb-5">
-				<h3 class="title">Appointment</h3>
-				<span>
-					<i class="fas fa-user-md"></i>
-				</span>
-				<p class="mt-2">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-			<div class="d-flex">
-				<div class="appoint-img">
-
+		<form class="" action="{{url('formapprenant')}}" method="post" enctype="multipart/form-data">
+				   @csrf
+				   <h1 class="text-center">APPRENANT</h1>
+				   <div class="form-group col-md-11">
+					<label for="make">Nom du Tuteur:</label>
+					<select type="text" name="tuteur_id" id="make" class="form-control">
+						<option value="">Choisir le Tuteur</option>
+						@foreach ($tuteur as $item)
+					<option value="{{$item->id}}">{{$item->nom}}</option>  
+						@endforeach
+					</select>
 				</div>
-				<div class="contact-right-w3l appoint-form">
-					<h5 class="title-w3 text-center mb-5">Fill your appointment form</h5>
-					<form action="#" method="post">
-						<div class="form-group">
-							<label for="recipient-name" class="col-form-label">Your Name</label>
-							<input type="text" class="form-control" placeholder="Your Name " name="Name" id="recipient-name" required="">
+						   <div class="form-group col-md-11">
+							   <label for="make">Nom:</label>
+							   <input type="text" name="nom" id="make" class="form-control">
+						   </div>
+						   <div class="form-group col-md-11">
+							   <label for="model">Prénom:</label>
+							   <input type="text" name="prenom" id="model" class="form-control">
+						   </div>
+						   <div class="form-group col-md-11">
+							 <label for="model">Date de Naissance:</label>
+							 <input type="date" name="dateNaissance" id="model" class="form-control">
+						   </div>
+						 <div class="form-group col-md-11">
+							 <label for="model">Ville d'origine:</label>
+							 <input type="text" name="villeDorigine" id="model" class="form-control">
+						 </div>
+						 <div class="form-group col-md-11">
+							<label for="model">Formation:</label>
+							<input type="text" name="formation" id="model" class="form-control">
 						</div>
-						<div class="form-group">
-							<label for="recipient-phone" class="col-form-label">Your Email</label>
-							<input type="email" class="form-control" placeholder="Your Email" name="email" id="recipient-phone" required="">
+						<div class="form-group col-md-11">
+							<label for="model">Etablissement Précédent:</label>
+							<input type="text" name="etablissementPrecedent" id="model" class="form-control">
 						</div>
-						<div class="form-group">
-							<label for="datepicker" class="col-form-label">Select your doctor</label>
-							<select required="" class="form-control">
-								<option value="">Select your doctor</option>
-								<option value="1">Anne Dan</option>
-								<option value="2">Carol Una</option>
-								<option value="3">Diana Sue</option>
-								<option value="4">Irene Sally</option>
-								<option value="4">Jane Mary</option>
+						<div class="form-group col-md-11">
+							<label for="model">Télephone:</label>
+							<input type="text" name="telephone" id="model" class="form-control">
+						</div>
+						<div class="form-group col-md-11">
+							<label for="model">Email:</label>
+							<input type="text" name="email" id="model" class="form-control">
+						</div>
+						<div class="form-group col-md-11">
+							<label for="model">Genre:</label>
+							<select name="genre" id="model" class="form-control">
+							<option value=""></option>
+							<option value="homme">Homme</option>
+							<option value="femme">Femme</option>
 							</select>
 						</div>
-						<div class="form-group">
-							<label for="datepicker" class="col-form-label">Select appointment date</label>
-							<input placeholder="Date" class="date form-control" id="datepicker" type="text" value="" onfocus="this.value = '';"
-							    onblur="if (this.value == '') {this.value = '';}" required="" />
+						<div class="form-group col-md-11">
+							<label for="model">Photo:</label>
+							<input type="file" name="photo" id="model" class="form-control">
 						</div>
-						<div class="form-group">
-							<label for="datepicker" class="col-form-label">Select appointment time</label>
-							<select required="" class="form-control">
-								<option value="">Select Time</option>
-								<option value="1">08:00-8:30</option>
-								<option value="2">08:30-9:00</option>
-								<option value="3"> 09:00-9:30</option>
-								<option value="4">09:30-10:00</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="datepicker" class="col-form-label">Select City</label>
-							<select required="" class="form-control">
-								<option value="">Select City</option>
-								<option value="1">city1</option>
-								<option value="2">city2</option>
-								<option value="3"> city3</option>
-								<option value="4">city4</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="datepicker" class="col-form-label">Select Speciality</label>
-							<select required="" class="form-control">
-								<option value="">Select Speciality</option>
-								<option value="1">Dermatology</option>
-								<option value="2">ENT</option>
-								<option value="3"> Genaral Medicine</option>
-								<option value="4">Nutritionist</option>
-							</select>
-						</div>
-						<input type="submit" value="Book Appointment" class="btn_apt">
-					</form>
-				</div>
-				<div class="clerafix"></div>
-			</div>
-		</div>
-	</div>
-	<!-- //contact -->
+						
+					
+						 {{-- </div>  --}}
+						 <div class="d-flex row form-group mt-2">
+						   <div class="form-group col-md-11 text-center "> <br>
+							   <button type="submit" class="btn btn-success w-40 ">Enrégistrer</button>
+							   <button type="reset" class="btn btn-danger w-40">Annuler</button>
+						   </div>
+						 </div>
+				 </form>
+				</div>  
+	 
 
 	<!-- footer -->
 	<footer>

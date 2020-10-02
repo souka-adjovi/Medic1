@@ -1,3 +1,4 @@
+@extends('layouts/include')
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -56,29 +57,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<ul class="col-lg-4 col-6 top-right-info text-center">
 								<li>
 									<a href="#">
-										<i class="fab fa-facebook-f"></i>
+										<i class="fa fa-facebook"></i>
 									</a>
 								</li>
 								<li class="mx-3">
 									<a href="#">
-										<i class="fab fa-twitter"></i>
+										<i class="fa fa-twitter"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<i class="fab fa-google-plus-g"></i>
+										<i class="fa fa-google-plus"></i>
 									</a>
 								</li>
 								<li class="ml-3">
 									<a href="#">
-										<i class="fab fa-pinterest-p"></i>
+										<i class="fa fa-pinterest-p"></i>
 									</a>
 								</li>
 							</ul>
 							<!-- //social icons -->
 							<div class="col-6 header-top_w3layouts pl-3 text-lg-left text-center">
 								<p class="text-white">
-									<i class="fas fa-map-marker-alt mr-2"></i>Parma Via Modena,BO, Italy</p>
+									<i class="fa fa-map-marker mr-2"></i>Ouaga 2000, Avenue ADGREN Burkina-Faso</p>
 							</div>
 						</div>
 					</div>
@@ -86,13 +87,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="row">
 							<div class="col-lg-7 col-6 top-w3layouts">
 								<p class="text-white">
-									<i class="far fa-envelope-open mr-2"></i>
-									<a href="mailto:info@example.com" class="text-white">info@example.com</a>
+									<i class="fa fa-envelope-open mr-2"></i>
+									<a href="mailto:info@example.com" class="text-white">info@medic.com</a>
 								</p>
 							</div>
 							<div class="col-lg-5 col-6 header-w3layouts pl-4 text-lg-left">
 								<p class="text-white">
-									<i class="fas fa-phone mr-2"></i>+1 000263676</p>
+									<i class="fa fa-phone mr-2"></i>+226 70263676</p>
 							</div>
 						</div>
 					</div>
@@ -122,13 +123,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
 					<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-lg-auto">
-							<li class="nav-item mt-lg-0 mt-3">
-								<a class="nav-link" href="index.html">Home
+								<li class="nav-item active mt-lg-0 mt-3">
+							<a class="nav-link" href="{{url('accueil')}}">Accueil
 									<span class="sr-only">(current)</span>
 								</a>
 							</li>
 							<li class="nav-item mx-lg-4 my-lg-0 my-3">
-								<a class="nav-link" href="about.html">About Us</a>
+							<a class="nav-link" href="{{route('A-propos')}}">A propos</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -137,24 +138,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-									<a class="dropdown-item" href="index.html">Services</a>
-									<a class="dropdown-item" href="gallery.html">Gallery</a>
-									<a class="dropdown-item" href="index.html">Blog</a>
+									<a class="dropdown-item scroll" href="#services">Services</a>
+								<a class="dropdown-item" href="{{route('gallerie')}}">Gallerie</a>
+									<a class="dropdown-item scroll" href="#blog">Blog</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="single.html">Single Page</a>
+									<a class="dropdown-item" href="{{route('Single')}}">Single Page</a>
 								</div>
 							</li>
-							<li class="nav-item mx-lg-4 my-lg-0 my-3">
-								<a class="nav-link" href="appointment.html">Appointment</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="contact.html">Contact Us</a>
-							</li>
-						</ul>
+							 <li class="nav-item">
+							<a class="nav-link" href="{{route('contact')}}">Contact</a>
+							</li> 
+						
 						<!-- login -->
-						<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
-							<i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+						
 						<!-- //login -->
+						@guest
+						
+						@if (Route::has('register'))
+						<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
+							<i class="fas fa-user"></i>Connexion</a>
+						@endif
+					@else
+						<li class="nav-item dropdown">
+								<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
+									{{ Auth::user()->name }}
+								</a>
+
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{{ route('logout') }}"
+								   onclick="event.preventDefault();
+												 document.getElementById('logout-form').submit();">
+									{{ __('Logout') }}
+								</a>
+								<a href="">  Dashboard</a>
+
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+									@csrf
+								</form>
+							</div>
+						</li>
+						@endguest
+						</ul>
 					</div>
 				</div>
 			</nav>
@@ -172,23 +196,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="modal-body">
 						<div class="login px-4 mx-auto mw-100">
-							<h5 class="text-center mb-4">Login Now</h5>
-							<form action="#" method="post">
+							<h5 class="text-center mb-4">Connexion</h5>
+							<form action="{{ route('login') }}" method="post">
+								@csrf
 								<div class="form-group">
-									<label>Your Name</label>
-									<input type="text" class="form-control" name="name" placeholder="" required="">
+									<label>Votre Email</label>
+									<input type="email" class="form-control" name="email" placeholder="" required="">
 								</div>
 								<div class="form-group">
-									<label class="mb-2">Password</label>
+									<label class="mb-2">Mot de passe</label>
 									<input type="password" class="form-control" name="password" placeholder="" required="">
 								</div>
-								<button type="submit" class="btn submit mb-4">Login</button>
+								{{-- <div class="form-group">
+									<label class="mb-2">Statu</label>
+									<select type="text" class="form-control"  name="statu" placeholder="" required="">
+					                </select>
+								</div> --}}
+								<button type="submit" class="btn submit mb-4">Connexion</button>
 								<p class="forgot-w3ls text-center pb-4">
-									<a href="#" class="text-white">Forgot your password?</a>
+									<a href="#" class="text-white">Mot de passe oublié?</a>
 								</p>
 								<p class="account-w3ls text-center pb-4">
-									Don't have an account?
-									<a href="#" data-toggle="modal" data-target="#exampleModalCenter2">Create one now</a>
+									Avez vous un compte?
+									<a href="{{route('register')}}" >Créer un compte</a>
 								</p>
 							</form>
 						</div>
@@ -253,9 +283,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item">
-					<a href="index.html">Home</a>
+					<a href="index.html">Accueil</a>
 				</li>
-				<li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+				<li class="breadcrumb-item active" aria-current="page">Contact</li>
 			</ol>
 		</div>
 	</div>
@@ -265,38 +295,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="agileits-contact py-5">
 		<div class="py-xl-5 py-lg-3">
 			<div class="w3ls-titles text-center mb-5">
-				<h3 class="title">Contact Us</h3>
+				<h3 class="title">Contactez-nous</h3>
 				<span>
 					<i class="fas fa-user-md"></i>
 				</span>
-				<p class="mt-2">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p class="mt-2"></p>
 			</div>
 			<div class="d-flex">
 				<div class="col-lg-5 w3_agileits-contact-left">
 				</div>
 				<div class="col-lg-7 contact-right-w3l">
-					<h5 class="title-w3 text-center mb-5">Get In Touch</h5>
+					<h5 class="title-w3 text-center mb-5"></h5>
 					<form action="#" method="post">
 						<div class="d-flex space-d-flex">
 							<div class="form-group grid-inputs">
-								<input type="text" class="name form-control" name="First Name" placeholder="First Name" required="">
+								<input type="text" class="name form-control" name="First Name" placeholder="Nom" required="">
 							</div>
 							<div class="form-group grid-inputs">
-								<input type="text" class="name form-control" name="Last Name" placeholder="Last Name" required="">
+								<input type="text" class="name form-control" name="Last Name" placeholder="Prénom" required="">
 							</div>
 						</div>
 						<div class="form-group">
 							<input type="email" class="name form-control" name="Email" placeholder="Email" required="">
 						</div>
 						<div class="form-group">
-							<input type="text" class="name form-control" name="Subject" placeholder="Subject" required="">
+							<input type="text" class="name form-control" name="Subject" placeholder="Sujet" required="">
 						</div>
 
 						<div class="form-group">
-							<textarea placeholder="Your Message" required="" class="form-control"></textarea>
+							<textarea placeholder="Votre Message" required="" class="form-control"></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Send Message">
+							<input type="submit" value="Envoyé">
 						</div>
 					</form>
 				</div>
@@ -307,7 +337,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	<!-- Map -->
 	<div class="map">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.5130900428026!2d44.506621715459396!3d40.17539347939393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abcf86e940951%3A0x87a1923d7df42367!2sBest+Western+Congress+Hotel!5e0!3m2!1sen!2sin!4v1509605601510"></iframe>
+		<iframe src="	https://goo.gl/maps/txWo9iqYncNCMnyn6"></iframe> 
+	
 	</div>
 	<!-- //Map -->
 
@@ -321,59 +352,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h2 class="mb-sm-3 mb-2">
 							<a href="index.html" class="text-white font-italic font-weight-bold">
 								<span>M</span>edic
-								<i class="fas fa-syringe ml-2"></i>
+								<i class="fas fa-syringe"></i>
 							</a>
 						</h2>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-							aperiam,
-							eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						<p>Médic met à votre disposition une équipe dynamique, professionnelle composée d’homme et 
+							de femme déterminés à vous satisfaire et disponible 24 heures sur 24..</p>
 					</div>
 					<div class="col-md-4 w3l-footer my-md-0 my-4">
-						<h3 class="mb-sm-3 mb-2 text-white">Address</h3>
+						<h3 class="mb-sm-3 mb-2 text-white">Adresse</h3>
 						<ul class="list-unstyled">
 							<li>
-								<i class="fas fa-location-arrow float-left"></i>
-								<p class="ml-4">The company name
-									<span>Lorem ipsum dolor,</span>New York,Morris Park. </p>
+								<i class="fa fa-location-arrow float-left"></i>
+								<p class="ml-4">Medic,
+									<span></span>Ouaga 2000, Avenue ADGREN Burkina-Faso. </p>
 								<div class="clearfix"></div>
 							</li>
 							<li class="my-3">
-								<i class="fas fa-phone float-left"></i>
-								<p class="ml-4">1234567890</p>
+								<i class="fa fa-phone float-left"></i>
+								<p class="ml-4">226 70263676</p>
 								<div class="clearfix"></div>
 							</li>
 							<li>
-								<i class="far fa-envelope-open float-left"></i>
-								<a href="mailto:info@example.com" class="ml-3">mail@example.com</a>
+								<i class="fa fa-envelope-open float-left"></i>
+								<a href="mailto:info@example.com" class="ml-3">info@medic.com</a>
 								<div class="clearfix"></div>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-4 w3l-footer">
-						<h3 class="mb-sm-3 mb-2 text-white">Quick Links</h3>
+						<h3 class="mb-sm-3 mb-2 text-white">Liens importants</h3>
 						<div class="nav-w3-l">
 							<ul class="list-unstyled">
 								<li>
-									<a href="index.html">Home</a>
+									<a href="index.html">Accueil</a>
 								</li>
 								<li class="mt-2">
-									<a href="about.html">About Us</a>
+									<a href="about.html">A propos</a>
 								</li>
 								<li class="mt-2">
-									<a href="gallery.html">Gallery</a>
+									<a href="gallery.html">Pages</a>
 								</li>
 								<li class="mt-2">
-									<a href="appointment.html">Appointment</a>
+									<a href="appointment.html">Formulaire</a>
 								</li>
 								<li class="mt-2">
-									<a href="contact.html">Contact Us</a>
+									<a href="contact.html">Comptes</a>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="border-top mt-5 pt-lg-4 pt-3 pb-lg-0 pb-3 text-center">
-					<p class="copy-right-grids mt-lg-1">© 2018 Medic. All Rights Reserved | Design by
+					<p class="copy-right-grids mt-lg-1">© 2020 Medic. All Rights Reserved | Design by
 						<a href="https://w3layouts.com/" target="_blank">W3layouts</a>
 					</p>
 				</div>

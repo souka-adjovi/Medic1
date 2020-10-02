@@ -17,8 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/accueil', function () {
+    return view('welcome');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/gallerie', 'HomeController@gallerie')->name('gallerie');
+Route::get('/apropos', 'HomeController@apropos')->name('A-propos');
+Route::get('/single', 'HomeController@single')->name('Single');
+
+
 // Route::get('/RegisterAdmin', 'HomeController@register_admin')->name('register-admin');

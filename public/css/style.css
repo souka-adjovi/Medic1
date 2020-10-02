@@ -158,7 +158,7 @@ a:hover {
 
 .header-top_w3layouts,
 .header-w3layouts {
-    border-left: 1px solid rgba(255, 255, 255, 0.63);
+    border-left: 1px solid rgba(218, 24, 24, 0.6);
 }
 
 .top-w3layouts p a:hover,
@@ -284,7 +284,7 @@ a.login-button:hover {
 /* //login button */
 /* modal */
 .modal-content {
-     background: url(../images/bg1.jpg) no-repeat left; 
+     background: url(../images/bg1.jpg) no-repeat left;  
      background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -395,7 +395,7 @@ button.submit:hover {
 
 .banner-info_agile_w3ls h3 {
     font-size: 56px;
-    color: #fff;
+    color: #f44336;
     letter-spacing: 1px;
     font-weight: 600;
 }
@@ -1400,7 +1400,7 @@ h4.price-clr {
 }
 
 .w3_agileits-contact-left {
-    background: url(../images/1.jpg) no-repeat 0px 0px;
+    background: url(.././images/rad.png) no-repeat 0px 0px;
     background-size: cover;
     min-height: 533px;
 }

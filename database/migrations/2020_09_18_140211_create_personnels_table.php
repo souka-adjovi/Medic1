@@ -15,8 +15,7 @@ class CreatePersonnelsTable extends Migration
     {
         Schema::create('personnels', function (Blueprint $table) {
             $table->increments('Nummatricule');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
 
             $table->unsignedInteger('fonction_id');
             $table->foreign('fonction_id')->references('id')->on('fonctions')->onDelete('cascade');

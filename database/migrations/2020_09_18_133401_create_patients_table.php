@@ -16,8 +16,6 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
            
             $table->increments('numcnib');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('dateDenaissance');
             $table->string('antecedantMedicaux');
             $table->string('personneAprevenir');

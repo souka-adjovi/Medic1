@@ -226,33 +226,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-lg-auto">
 							<li class="nav-item active mt-lg-0 mt-3">
-								<a class="nav-link" href="index.html">Accueil
+							<a class="nav-link" href="{{url('accueil')}}">Accueil
 									<span class="sr-only">(current)</span>
 								</a>
 							</li>
 							<li class="nav-item mx-lg-4 my-lg-0 my-3">
-								<a class="nav-link" href="about.html">A propos</a>
+							<a class="nav-link" href="{{route('A-propos')}}">A propos</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-								    aria-haspopup="true" aria-expanded="false">
-									Pages
+								    aria-haspopup="true" aria-expanded="false">Pages
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
 									<a class="dropdown-item scroll" href="#services">Services</a>
-									<a class="dropdown-item" href="gallery.html">Images</a>
+								<a class="dropdown-item" href="{{route('gallerie')}}">Gallerie</a>
 									<a class="dropdown-item scroll" href="#blog">Blog</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="single.html">Single Page</a>
+									<a class="dropdown-item" href="{{route('Single')}}">Single Page</a>
 								</div>
 							</li>
-							<li class="nav-item mx-lg-4 my-lg-0 my-3">
-								<a class="nav-link" href="appointment.html">Appointment</a>
-							</li>
 							<li class="nav-item">
-							<a class="nav-link" href="{{route('contact')}}">Contact</a>
-							</li>
+								<a class="nav-link" href="{{route('contact')}}">Contact</a>
+								</li> 
+						 
 						
 						<!-- login -->
 						
@@ -261,12 +258,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						
 						@if (Route::has('register'))
 						<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
-							<i class="fas fa-user"></i>Connexion
-						</a>
+							<i class="fas fa-user"></i>Connexion</a>
 						@endif
 					@else
 						<li class="nav-item dropdown">
-							{{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> --}}
 								<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
 									{{ Auth::user()->name }}
 								</a>
@@ -276,8 +271,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								   onclick="event.preventDefault();
 												 document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
-								</a>
-								<a href="">  Dashboard</a>
+								</a><a class="dropdown-item " href="">Dashboard</a>
 
 								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 									@csrf
@@ -314,11 +308,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<label class="mb-2">Mot de passe</label>
 									<input type="password" class="form-control" name="password" placeholder="" required="">
 								</div>
-								<div class="form-group">
+								{{-- <div class="form-group">
 									<label class="mb-2">Statu</label>
 									<select type="text" class="form-control"  name="statu" placeholder="" required="">
 					                </select>
-								</div>
+								</div> --}}
 								<button type="submit" class="btn submit mb-4">Connexion</button>
 								<p class="forgot-w3ls text-center pb-4">
 									<a href="#" class="text-white">Mot de passe oublié?</a>
@@ -389,10 +383,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h3>Le Service médical 
 									<span>auquel vous croyez</span>
 								</h3>
-								<p class="mt-3 mb-md-5 mb-3">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-									minim veniam, quis nostrud exercitation
-									ullamco.</p>
-								<a href="about.html">Read More
+								<p class="mt-3 mb-md-5 mb-3">Nous vous soignons, Dieu vous guérit.</p>
+								<a href="about.html">Lire plus
 									<i class="fa fa-caret-right ml-2" aria-hidden="true"></i>
 								</a>
 							</div>
@@ -406,10 +398,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h3>L'excellence médicale
 									<span>tout les jours</span>
 								</h3>
-								<p class="mt-3 mb-md-5 mb-3">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-									minim veniam, quis nostrud exercitation
-									ullamco.</p>
-								<a href="about.html">Read More
+								<p class="mt-3 mb-md-5 mb-3">La technologie à votre portée!!
+									</p>
+								<a href="about.html">Lire Plus
 									<i class="fa fa-caret-right ml-2" aria-hidden="true"></i>
 								</a>
 							</div>
@@ -420,13 +411,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="banner-top3">
 						<div class="banner-info_agile_w3ls">
 							<div class="container">
-								<h3>l'hopital du
+								<h3>L'hopital du
 									<span>future, maintenant</span>
 								</h3>
-								<p class="mt-3 mb-md-5 mb-3">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-									minim veniam, quis nostrud exercitation
-									ullamco.</p>
-								<a href="about.html">Read More
+								<p class="mt-3 mb-md-5 mb-3">Toutes choses en tout temps!!</p>
+								<a href="about.html">Lire Plus
 									<i class="fa fa-caret-right ml-2" aria-hidden="true"></i>
 								</a>
 							</div>
@@ -443,16 +432,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="banner-bottom py-5">
 		<div class="d-flex container py-xl-3 py-lg-3">
 			<div class="banner-left-bottom-w3ls offset-lg-2 offset-md-1">
-				<h6 class="text-white">Sed do eiusmod tempor</h6>
-				<h3 class="text-white my-3">High professional doctors</h3>
-				<p>all specialists have extensive practical experience and regularly training courses in educational centers of the
-					world</p>
+				<h6 class="text-white">Mr Ouedraogo Bénissan</h6>
+				<h3 class="text-white my-3">Docteur Principal</h3>
 			</div>
-			<div class="button">
-				<a href="about.html" class="w3ls-button-agile">Voir plus
+			{{-- <div class="button">
+				<a href="about.html" class="w3ls-button-agile">Voir Plus
 					<i class="fas fa-hand-point-right"></i>
 				</a>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 	<!-- //banner bottom -->
@@ -462,7 +449,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container py-xl-5 py-lg-3">
 			<div class="row">
 				<div class="col-lg-5 welcome-right">
-					<img src="images/b2.png" alt=" " class="img-fluid">
+					<img src="images/g1.jpg" alt=" " class="img-fluid">
 				</div>
 				<div class="col-lg-7 welcome-left mt-4">
 					<h3>Qui sommes-nous?</h3>
@@ -471,7 +458,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<p>
 						Nous sommes équipés des dernières innovations technologiques (numérisation des dents, laser, logiciel de traitement 3SHAPE®, imprimante 3D Printer Stratasys leader mondial de l’impression 3D) et pratiquons quotidiennement les meilleures solutions techniques des nouvelles générations numériques..</p>
 					<div class="readmore-w3-agileits mt-md-5 mt-4">
-						<a href="single.html" class="w3ls-button-agile text-dark">Voir plus</a>
+						<a href="single.html" class="w3ls-button-agile text-dark">Lire Plus</a>
 					</div>
 				</div>
 			</div>
@@ -480,14 +467,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //middle section -->
 
 	<!-- services -->
-	{{-- <div class="why-choose-agile pt-5" id="services">
+ <div class="why-choose-agile pt-5" id="services">
 		<div class="container pt-xl-5 pt-lg-3">
 			<div class="w3ls-titles text-center mb-5">
 				<h3 class="title">Nos meilleures Services</h3>
 				<span>
 					<i class="fas fa-user-md"></i>
 				</span>
-				<p class="mt-2">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p class="mt-2">Des services de qualité irréprochable</p>
 			</div>
 			<div class="row why-choose-agile-grids-top">
 				<div class="col-lg-4 agileits-w3layouts-grid">
@@ -499,7 +486,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="col-9 agile-why-text-2">
 							<h4 class="text-dark font-weight-bold mb-3">Médecine Générale</h4>
-							<p>Lorem ipsum magna, vehicula ut porta ete.</p>
+							<p>est une spécialité médicale prenant en charge le suivi durable, le bien-être et les soins de santé généraux.</p>
 						</div>
 					</div>
 					<div class="row wthree_agile_us my-5">
@@ -510,7 +497,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="col-9 agile-why-text-2">
 							<h4 class="text-dark font-weight-bold mb-3">Services dentaire</h4>
-							<p>Lorem ipsum magna, vehicula ut porta ete.</p>
+							<p>Le service bucco-dentaire de Medic traite l'ensemble des pathologies
+								 des dents et de la bouche.</p>
 						</div>
 					</div>
 					<div class="row wthree_agile_us">
@@ -521,18 +509,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="col-9 agile-why-text-2">
 							<h4 class="text-dark font-weight-bold mb-3">Traitement Médical</h4>
-							<p>Lorem ipsum magna, vehicula ut porta ete.</p>
+							<p>fait intervenir un pharmacien, un médecin ou un infirmier
+								.</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 agileits-w3layouts-grid img text-center">
-					<img src="images/b3.png" alt=" " class="img-fluid" />
+					<img src="images/images.jpg" alt=" " class="img-fluid" />
 				</div>
 				<div class="col-lg-4 agileits-w3layouts-grid">
 					<div class="row wthree_agile_us">
 						<div class="col-9 agile-why-text-2">
 							<h4 class="text-dark font-weight-bold mb-3">Cardiologie</h4>
-							<p>Lorem ipsum magna, vehicula ut porta ete.</p>
+							<p>branche de la médecine qui traite des troubles du cœur ainsi que de certaines parties du système circulatoire..</p>
 						</div>
 						<div class="col-3 agile-why-text p-0">
 							<div class="wthree_features_grid">
@@ -543,7 +532,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="row wthree_agile_us my-5">
 						<div class="col-9 agile-why-text-2">
 							<h4 class="text-dark font-weight-bold mb-3">Orthopédie</h4>
-							<p>Lorem ipsum magna, vehicula ut porta ete.</p>
+							<p>est la spécialité chirurgicale qui a pour objet la prévention et la correction des
+								 affections de l'appareil locomoteur.</p>
 						</div>
 						<div class="col-3 agile-why-text p-0">
 							<div class="wthree_features_grid">
@@ -554,7 +544,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="row wthree_agile_us">
 						<div class="col-9 agile-why-text-2">
 							<h4 class="text-dark font-weight-bold mb-3">Laboratoire</h4>
-							<p>Lorem ipsum magna, vehicula ut porta ete.</p>
+							<p> Notre laboratoire vous offres toutes sorte
+								 d'analyse et met à votre disposition une équipe de professinnel 24H/24 et 7j/7</p>
 						</div>
 						<div class="col-3 agile-why-text p-0">
 							<div class="wthree_features_grid">
@@ -565,7 +556,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 		</div>
-	</div> --}}
+	</div> 
 	<!-- //services -->
 
 	<!-- blog -->
@@ -582,46 +573,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-4 pricing">
 					<div class="price-top">
 						<a href="single.html">
-							<img src="images/blog1.jpg" alt="" class="img-fluid" />
+							<img src="images/hemoglobine1.jpg" alt="" class="img-fluid" />
 						</a>
 						<h3>13
 							<span>Aout</span>
 						</h3>
 					</div>
 					<div class="price-bottom p-4">
-						<h4 class="text-dark mb-3">Sit voluptatem accusantium doloremque</h4>
+						<h4 class="text-dark mb-3">Diagnostique de l'hémoglobineA</h4>
+						<h6>Dans le cas de la drépanocytose (anomalie héréditaire de l'hémoglobine), le diagnostic se fait par l'observation des globules rouges. </h6>
 						<a href="single.html">
-							<i class="fa fa-user mr-2"></i>Posted by accusantium</a>
+							<i class="fa fa-user mr-2"></i>Posté par Médic</a>
 					</div>
 				</div>
 				<div class="col-md-4 pricing my-md-0 my-5">
 					<div class="price-top">
 						<a href="single.html">
-							<img src="images/blog2.jpg" alt="" class="img-fluid" />
+							<img src="images/rad.PNG" alt="" class="img-fluid" />
 						</a>
 						<h3>24
 							<span>Aout</span>
 						</h3>
 					</div>
 					<div class="price-bottom p-4">
-						<h4 class="text-dark mb-3">Sit voluptatem accusantium doloremque</h4>
+						<h4 class="text-dark mb-3">Diagnostique cranier</h4>
+						<h6>Le diagnostic du traumatisme crânien peut être évident lorsqu'il 
+							est signalé par la personne concernée consciente au sortir de la perte de connaissance, ou par l'entourage,suspecté chez une personne. 
+							</h6>
 						<a href="single.html">
-							<i class="fa fa-user mr-2"></i>Posted by accusantium</a>
+							<i class="fa fa-user mr-2"></i>Posté par Médic</a>
 					</div>
 				</div>
 				<div class="col-md-4 pricing">
 					<div class="price-top">
 						<a href="single.html">
-							<img src="images/blog3.jpg" alt="" class="img-fluid" />
+							<img src="images/g2.jpg" alt="" class="img-fluid" />
 						</a>
 						<h3>30
 							<span>Septembre</span>
 						</h3>
 					</div>
 					<div class="price-bottom p-4">
-						<h4 class="text-dark mb-3">Sit voluptatem accusantium doloremque</h4>
+						<h4 class="text-dark mb-3">Transplantation de la colonne vertébrale</h4>
+						<h6>Pour rigidifier un segment de colonne vertébrale,
+							 une greffe osseuse est fixée sur les vertèbres concernées.</h6>
 						<a href="single.html">
-							<i class="fa fa-user mr-2"></i>Posted by accusantium</a>
+							<i class="fa fa-user mr-2"></i>Posté par Médic</a>
 					</div>
 				</div>
 			</div>
@@ -637,11 +634,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<span>
 					<i class="fa fa-user-md"></i>
 				</span>
-				<p class="mt-2">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p class="mt-2">Vous accompagner tout les jours à moindre cout!!</p>
 			</div>
 			<div class="row">
 				<div class="col-lg-6 w3ls-wthree-screen text-center">
-					<img src="images/b5.png" alt="" class="img-fluid">
+					<img src="images/bébé.jpg" alt="" class="img-fluid">
 				</div>
 				<div class="col-lg-6 w3ls-wthree-texts mt-5">
 					<div class="row icons-screen">
@@ -649,17 +646,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<i class="fas fa-syringe"></i>
 						</div>
 						<div class="col-9 screen-agile-2">
-							<h5 class="mb-3">Théraphie</h5>
-							<p>Incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut</p>
+							<h5 class="mb-3">Accouchement</h5>
+							<p> Depuis l'épidémie de coronavirus, le séjour à la maternité, après l'accouchement, est très court..</p>
 						</div>
 					</div>
 					<div class="row icons-screen mt-5">
 						<div class="col-3 screen-agile text-right">
-							<i class="fa fa-medrt"></i>
+							<i class="fab fa-medrt"></i>
 						</div>
 						<div class="col-9 screen-agile-2">
 							<h5 class="mb-3">Procédure Médicale</h5>
-							<p>Incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut</p>
+							<p>Un examen médical est une procédure de diagnostic réalisée pour des motifs de santé</p>
 						</div>
 					</div>
 				</div>
@@ -680,9 +677,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<i class="fas fa-syringe"></i>
 							</a>
 						</h2>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-							aperiam,
-							eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						<p>Médic met à votre disposition une équipe dynamique, professionnelle composée d’homme et 
+							de femme déterminés à vous satisfaire et disponible 24 heures sur 24..</p>
 					</div>
 					<div class="col-md-4 w3l-footer my-md-0 my-4">
 						<h3 class="mb-sm-3 mb-2 text-white">Adresse</h3>
@@ -716,13 +712,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<a href="about.html">A propos</a>
 								</li>
 								<li class="mt-2">
-									<a href="gallery.html">Images</a>
+									<a href="gallery.html">Pages</a>
 								</li>
 								<li class="mt-2">
-									<a href="appointment.html">Appointment</a>
+									<a href="appointment.html">Formulaire</a>
 								</li>
 								<li class="mt-2">
-									<a href="contact.html">Contact</a>
+									<a href="contact.html">Comptes</a>
 								</li>
 							</ul>
 						</div>
