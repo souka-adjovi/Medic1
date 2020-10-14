@@ -111,7 +111,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="container">
 					<!-- logo -->
 					<h1>
-						<a class="navbar-brand font-weight-bold font-italic" href="index.html">
+					<a class="navbar-brand font-weight-bold font-italic" href="{{('/')}}">
 							<span>M</span>edic
 							<i class="fas fa-syringe"></i>
 						</a>
@@ -129,7 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</a>
 								</li>
 								<li class="nav-item mx-lg-4 my-lg-0 my-3">
-								<a class="nav-link" href="{{route('A-propos')}}">A propos</a>
+								<a class="nav-link" href="{{url('A-propos')}}">A propos</a>
 								</li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -139,14 +139,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	
 										<a class="dropdown-item scroll" href="#services">Services</a>
-									<a class="dropdown-item" href="{{route('gallerie')}}">Gallerie</a>
+									<a class="dropdown-item" href="{{url('gallerie')}}">Gallerie</a>
 										<a class="dropdown-item scroll" href="#blog">Blog</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="{{route('Single')}}">Single Page</a>
+										<a class="dropdown-item" href="{{url('Single')}}">Single Page</a>
 									</div>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{route('contact')}}">Contact</a>
+									<a class="nav-link" href="{{url('Contact')}}">Contact</a>
 								 </li> 
 						</ul>
 						<!-- login -->

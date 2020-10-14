@@ -24,11 +24,12 @@ Route::get('/accueil', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::get('/gallerie', 'HomeController@gallerie')->name('gallerie');
-Route::get('/apropos', 'HomeController@apropos')->name('A-propos');
-Route::get('/single', 'HomeController@single')->name('Single');
+Route::get('/home', 'HomeController@index');
+Route::get('Contact', 'ContactController@contact');
+Route::get('Gallerie', 'GallerieController@gallerie');
+Route::get('A-propos', 'AproposController@apropos');
+Route::get('Single', 'SingleController@single');
+Route::get('Enregistrer', 'EnregistrerController@enregistrer');
 
 
 // Route::get('/RegisterAdmin', 'HomeController@register_admin')->name('register-admin');

@@ -28,17 +28,9 @@ class HomeController extends Controller
     public function register_admin(){
         return view('layouts/registerAdmin');
     }
-    function contact(){
-        return view('pages_internes.contact');
-    }
-    function gallerie(){
-        return view('pages_internes.gallerie');
-    }
-    function apropos(){
-        return view('pages_internes.A-propos');
-    }
-    function single(){
-        return view('pages_internes.single');
-    }
+   
+ 
+    
+ 
 }
 
