@@ -123,31 +123,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
 					<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-lg-auto">
-								<li class="nav-item active mt-lg-0 mt-3">
+							<li class="nav-item mt-lg-0 mt-3">
 							<a class="nav-link" href="{{url('/')}}">Accueil
 									<span class="sr-only">(current)</span>
 								</a>
 							</li>
 							<li class="nav-item mx-lg-4 my-lg-0 my-3">
-							<a class="nav-link" href="{{url('A-propos')}}">A propos</a>
+							<a class="nav-link" href="{{ url('A-propos')}}">A propos</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-								    aria-haspopup="true" aria-expanded="false">
-									Pages
+								    aria-haspopup="true" aria-expanded="false">Pages
 								</a>
+								
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
 									<a class="dropdown-item scroll" href="#services">Services</a>
-								<a class="dropdown-item" href="{{url('Gallerie')}}">Gallerie</a>
+									<a class="dropdown-item" href="{{ url('Gallerie')}}">Gallerie</a>
 									<a class="dropdown-item scroll" href="#blog">Blog</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="{{url('Single')}}">Single Page</a>
-								</div>
+									<a class="dropdown-item" href="{{ url('Single')}}">Page Unique</a>
+									</div>
 							</li>
-							 <li class="nav-item">
-							<a class="nav-link" href="{{url('Contact')}}">Contact</a>
+							<li class="nav-item mx-lg-4 my-lg-0 my-3">
+								<a class="nav-link" href="{{url('create-rdv')}}">Rendez-Vous</a>
+							</li>
+						
+							<br>
+					
+					
+							<li class="nav-item">
+								<a class="nav-link" href="{{ url('Contact')}}">Contact</a>
 							</li> 
+							
+						
+							
+						 
 						
 						<!-- login -->
 						
@@ -158,6 +169,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
 							<i class="fas fa-user"></i>Connexion</a>
 						@endif
+			
+				
+							 
 					@else
 						<li class="nav-item dropdown">
 								<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
@@ -169,14 +183,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								   onclick="event.preventDefault();
 												 document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
-								</a>
-								<a href="">  Dashboard</a>
+								</a><a class="dropdown-item " href="">Dashboard</a>
 
 								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 									@csrf
 								</form>
 							</div>
 						</li>
+					
 						@endguest
 						</ul>
 					</div>
@@ -200,7 +214,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<form action="{{ route('login') }}" method="post">
 								@csrf
 								<div class="form-group">
-									<label>Votre Email</label>
+									<label>Email</label>
 									<input type="email" class="form-control" name="email" placeholder="" required="">
 								</div>
 								<div class="form-group">
@@ -214,7 +228,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div> --}}
 								<button type="submit" class="btn submit mb-4">Connexion</button>
 								<p class="forgot-w3ls text-center pb-4">
-									<a href="#" class="text-white">Mot de passe oublié?</a>
+									<a href="{{route('register')}}" class="text-white">Mot de passe oublié?</a>
 								</p>
 								<p class="account-w3ls text-center pb-4">
 									Avez vous un compte?
@@ -306,7 +320,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="col-lg-7 contact-right-w3l">
 					<h5 class="title-w3 text-center mb-5"></h5>
-					<form action="#" method="post">
+					<form action="store-contact" method="post">
+						@csrf
 						<div class="d-flex space-d-flex">
 							<div class="form-group grid-inputs">
 								<input type="text" class="name form-control" name="First Name" placeholder="Nom" required="">
@@ -384,19 +399,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="nav-w3-l">
 							<ul class="list-unstyled">
 								<li>
-									<a href="index.html">Accueil</a>
+									<a href="{{url('/')}}">Accueil</a>
 								</li>
 								<li class="mt-2">
-									<a href="about.html">A propos</a>
+									<a href="{{ url('A-propos')}}">A propos</a>
 								</li>
 								<li class="mt-2">
-									<a href="gallery.html">Pages</a>
+									<a href="#">Pages</a>
 								</li>
 								<li class="mt-2">
-									<a href="appointment.html">Formulaire</a>
+									<a href="{{ url('rdv')}}">Rendez-Vous</a>
 								</li>
 								<li class="mt-2">
-									<a href="contact.html">Comptes</a>
+									<a href="{{ url('Contact')}}">Contact</a>
 								</li>
 							</ul>
 						</div>

@@ -14,13 +14,13 @@ class CreatePersonnelsTable extends Migration
     public function up()
     {
         Schema::create('personnels', function (Blueprint $table) {
-            $table->increments('Nummatricule');
-            
-
-            $table->unsignedInteger('fonction_id');
-            $table->foreign('fonction_id')->references('id')->on('fonctions')->onDelete('cascade');
-            $table->unsignedInteger('centre_Nummatricule');
-            $table->foreign('centre_Nummatricule')->references('Nummatricule')->on('centres')->onDelete('cascade');
+            $table->increments('id');
+            $table->string('Nummatricule')->unique();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('fonction');
+            $table->unsignedInteger('centre_id');
+            $table->foreign('centre_id')->references('id')->on('centres')->onDelete('cascade');
             $table->string('dateDenaissance');
             $table->integer('telephone');
             $table->timestamps();

@@ -7,6 +7,7 @@ use App\Personnel;
 use App\PersonneAPrevenir;
 use App\Centre;
 use App\User;
+use App\Contact;
 
 class Patient extends Model
 
@@ -37,4 +38,7 @@ class Patient extends Model
         public function PatientPersonnel(){
         return $this->hasMany(PatientPersonnel::class);
         }
+        public function Contact(){
+            return $this->hasMany(Contact::class);
+            }
 }

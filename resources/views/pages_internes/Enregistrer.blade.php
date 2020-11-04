@@ -1,49 +1,55 @@
+
+@extends('home')
 @extends('layouts/include')
+
+@section('dashboard')
+ 
+ <div class="d-flex row form-group mt-2">
+    <div class="form-group col-md-11 text-center "> <br>
+        <a href="{{url('/')}}"><button type="" class="btn btn-warning">Retour</button></a>
+        </div>
+        </div>
     <div class="container">
-    <form class="" action="{{url('Enregistrer')}}" method="post" enctype="multipart/form-data">
+    <form class="" action="{{url('store-patient')}}" method="post" enctype="multipart/form-data">
                @csrf
                <h1 class="text-center">PATIENT</h1>
-               <div class="form-group col-md-11">
-                <label for="make">Nom du Tuteur:</label>
-                <select type="text" name="tuteur_id" id="make" class="form-control">
-                    <option value="">Choisir le Tuteur</option>
-                    {{-- @foreach ($tuteur as $item)
-                <option value="{{$item->id}}">{{$item->nom}}</option>  
-                    @endforeach --}}
-                </select>
-            </div>
-                       <div class="form-group col-md-11">
-                           <label for="make">Nom:</label>
-                           <input type="text" name="nom" id="make" class="form-control">
-                       </div>
-                       <div class="form-group col-md-11">
-                           <label for="model">Prénom:</label>
-                           <input type="text" name="prenom" id="model" class="form-control">
-                       </div>
-                       <div class="form-group col-md-11">
-                         <label for="model">Date de Naissance:</label>
-                         <input type="date" name="dateNaissance" id="model" class="form-control">
-                       </div>
                      <div class="form-group col-md-11">
-                         <label for="model">Ville d'origine:</label>
-                         <input type="text" name="villeDorigine" id="model" class="form-control">
-                     </div>
-                     <div class="form-group col-md-11">
-                        <label for="model">Formation:</label>
-                        <input type="text" name="formation" id="model" class="form-control">
+                            <label for="">Nom:</label>
+                            <input type="text" name="nom" id="" class="form-control">
                     </div>
                     <div class="form-group col-md-11">
-                        <label for="model">Etablissement Précédent:</label>
-                        <input type="text" name="etablissementPrecedent" id="model" class="form-control">
+                        <label for="">Prénom:</label>
+                        <input type="text" name="prenom" id="" class="form-control">
+                    </div>
+                       <div class="form-group col-md-11">
+                           <label for="">Numéro CNIB:</label>
+                           <input type="text" name="numcnib" id="" class="form-control">
+                       </div>
+                       <div class="form-group col-md-11">
+                           <label for="model">Date de Naissance:</label>
+                           <input type="date" name="dateDenaissance" id="model" class="form-control">
+                       </div>
+                       <div class="form-group col-md-11">
+                         <label for="model">Antécedents Médicaux:</label>
+                         <input type="text" name="antecedantMedicaux" id="model" class="form-control">
+                       </div>
+                     <div class="form-group col-md-11">
+                         <label for="model">Personne à Prévenir:</label>
+                         <input type="text" name="personneAprevenir" id="model" class="form-control">
+                     </div>
+                     <div class="form-group col-md-11">
+                        <label for="model">Groupe Sanguin:</label>
+                        <input type="text" name="groupesanguin" id="model" class="form-control">
                     </div>
                     <div class="form-group col-md-11">
                         <label for="model">Télephone:</label>
                         <input type="text" name="telephone" id="model" class="form-control">
                     </div>
                     <div class="form-group col-md-11">
-                        <label for="model">Email:</label>
-                        <input type="text" name="email" id="model" class="form-control">
+                        <label for="model">Adresse:</label>
+                        <input type="text" name="adresse" id="model" class="form-control">
                     </div>
+               
                     <div class="form-group col-md-11">
                         <label for="model">Genre:</label>
                         <select name="genre" id="model" class="form-control">
@@ -53,17 +59,17 @@
                         </select>
                     </div>
                     <div class="form-group col-md-11">
-                        <label for="model">Photo:</label>
-                        <input type="file" name="photo" id="model" class="form-control">
+                        <label for="model">Ordonnance:</label>
+                        <input type="file" name="ordonne" id="model" class="form-control">
                     </div>
                     
-                
-                     {{-- </div>  --}}
                      <div class="d-flex row form-group mt-2">
-                       <div class="form-group col-md-11 text-center "> <br>
+                       <div class="form-group col-md-11 text-center "><br><br>
                            <button type="submit" class="btn btn-success w-40 ">Enrégistrer</button>
                            <button type="reset" class="btn btn-danger w-40">Annuler</button>
                        </div>
+                   
                      </div>
     </form>
-            </div>  
+    </div>
+     @endsection

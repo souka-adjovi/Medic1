@@ -14,11 +14,11 @@ class CreatePatientPersonnelsTable extends Migration
     public function up()
     {
         Schema::create('patient_personnels', function (Blueprint $table) {
-            $table->Unsignedinteger('NumCNIB');
-            $table->Unsignedinteger('Nummatricule');
-            $table->foreign('NumCNIB')->references('NumCNIB')->on('Patients')->onDelete('cascade');
-            $table->foreign('Nummatricule')->references('Nummatricule')->on('Personnels')->onDelete('cascade');
-            $table->primary(['NumCNIB','Nummatricule']);
+            $table->Unsignedinteger('patient_id');
+            $table->Unsignedinteger('personnel_id');
+            $table->foreign('patient_id')->references('id')->on('Patients')->onDelete('cascade');
+            $table->foreign('personnel_id')->references('id')->on('Personnels')->onDelete('cascade');
+            $table->primary(['patient_id','personnel_id']);
             $table->timestamps();
         });
     }

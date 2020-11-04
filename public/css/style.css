@@ -188,7 +188,7 @@ div#home {
 
 .navbar-light .navbar-nav .nav-link {
     padding: 0;
-    color: #fff;
+    color: rgb(235, 14, 14)!important;
     background: transparent;
     font-size: 16px;
     letter-spacing: 1px;
@@ -313,7 +313,7 @@ a.login-button:hover {
 }
 
 p.account-w3ls {
-    color: #dadada;
+     color: rebeccapurple; 
 }
 
 p.account-w3ls a {
@@ -323,7 +323,7 @@ p.account-w3ls a {
 .form-group label {
     font-size: 15px;
     letter-spacing: 1px;
-    color: #fff;
+    color: rgb(218, 49, 37) !important;
     margin-bottom: 8px;
     text-align: right;
     display: block;
@@ -331,7 +331,7 @@ p.account-w3ls a {
 
 button.submit {
     background: #f44336;
-    color: #fff;
+     color: #fff; 
     font-size: 15px;
     letter-spacing: 2px;
     padding: 10px;
@@ -363,7 +363,7 @@ button.submit:hover {
 }
 
 .banner-top1 {
-    background: url(.././images/13Améliorer.jpg) no-repeat 0px 0px;
+    background: url(.././images/hospital.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -372,7 +372,7 @@ button.submit:hover {
 }
 
 .banner-top2 {
-    background: url(.././images/sante.jpg) no-repeat 0px 0px;
+    background: url(.././images/modern-virtual.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -381,7 +381,7 @@ button.submit:hover {
 }
 
 .banner-top3 {
-    background: url(.././images/DSC_0114.jpg) no-repeat 0px 0px;
+    background: url(.././images/banner2.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -561,7 +561,7 @@ a.w3ls-button-agile:hover {
 }
 
 .rslides li {
-    -webkit-backface-visibility: hidden;
+     -webkit-backface-visibility: hidden;
     position: absolute;
     display: none;
     width: 100%;
@@ -629,7 +629,7 @@ a.w3ls-button-agile:hover {
 /* //responsive slide */
 /* banner bottom */
 .banner-bottom.py-5 {
-    background: url(../images/medecin.jpg) no-repeat top;
+    background: url(../images/bg1.jpg) no-repeat top;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1400,7 +1400,7 @@ h4.price-clr {
 }
 
 .w3_agileits-contact-left {
-    background: url(.././images/rad.png) no-repebg1t 0px 0px;
+    background: url(../images/un.jpg) no-repebg1t 0px 0px;
     background-size: cover;
     min-height: 533px;
 }

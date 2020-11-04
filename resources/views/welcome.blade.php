@@ -225,7 +225,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
 					<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-lg-auto">
-							<li class="nav-item active mt-lg-0 mt-3">
+							<li class="nav-item mt-lg-0 mt-3">
 							<a class="nav-link" href="{{url('/')}}">Accueil
 									<span class="sr-only">(current)</span>
 								</a>
@@ -237,51 +237,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 								    aria-haspopup="true" aria-expanded="false">Pages
 								</a>
+								
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
 									<a class="dropdown-item scroll" href="#services">Services</a>
-								<a class="dropdown-item" href="{{ url('Gallerie')}}">Gallerie</a>
+									<a class="dropdown-item" href="{{ url('Gallerie')}}">Gallerie</a>
 									<a class="dropdown-item scroll" href="#blog">Blog</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="{{ url('Single')}}">Single Page</a>
-								</div>
+									<a class="dropdown-item" href="{{ url('Single')}}">Page Unique</a>
+									</div>
 							</li>
+							<li class="nav-item mx-lg-4 my-lg-0 my-3">
+								<a class="nav-link" href="{{url('create-rdv')}}">Rendez-Vous</a>
+							</li>
+						
+							<br>
+					
+					
 							<li class="nav-item">
 								<a class="nav-link" href="{{ url('Contact')}}">Contact</a>
-								</li> 
+							</li> 
+							
+						
+							
 						 
 						
 						<!-- login -->
 						
 						<!-- //login -->
-						@guest
-						
-						@if (Route::has('register'))
-						<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
-							<i class="fas fa-user"></i>Connexion</a>
-						@endif
-					@else
-						<li class="nav-item dropdown">
-								<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
-									{{ Auth::user()->name }}
-								</a>
-
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="{{ route('logout') }}"
-								   onclick="event.preventDefault();
-												 document.getElementById('logout-form').submit();">
-									{{ __('Logout') }}
-								</a><a class="dropdown-item " href="">Dashboard</a>
-
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-									@csrf
-								</form>
-							</div>
-						</li>
 					
-					<a href="{{url('Enregistrer')}}" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3">
-							<i class="fas fa-user"></i>Enrégistrer un patient</a>
-						@endguest
+						
+						
+						<a href="{{ route('login')}}" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
+							<i class="fas fa-user"></i>Connexion</a>
+						
+		
 						</ul>
 					</div>
 				</div>
@@ -318,7 +308,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div> --}}
 								<button type="submit" class="btn submit mb-4">Connexion</button>
 								<p class="forgot-w3ls text-center pb-4">
-									<a href="#" class="text-white">Mot de passe oublié?</a>
+									<a href="{{route('register')}}" class="text-white">Mot de passe oublié?</a>
 								</p>
 								<p class="account-w3ls text-center pb-4">
 									Avez vous un compte?
@@ -387,7 +377,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<span>auquel vous croyez</span>
 								</h3>
 								<p class="mt-3 mb-md-5 mb-3">Nous vous soignons, Dieu vous guérit.</p>
-								<a href="about.html">Lire plus
+							<a href="{{url('/')}}">Lire plus
 									<i class="fa fa-caret-right ml-2" aria-hidden="true"></i>
 								</a>
 							</div>
@@ -457,11 +447,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-lg-7 welcome-left mt-4">
 					<h3>Qui sommes-nous?</h3>
 					<h6 class="mt-3"></h6>
-					<h4 class="my-4 font-italic">Créé en 2009, notre laboratoire dentaire accompagne depuis près de 8 ans de nombreux médecins répartis au Burkina-Faso et à travers le monde pour toute réalisation en orthodontie esthétique (gouttière orthodontie). Les avancées techniques visant la production d’un appareil dentaire transparent, ont conduit à l’utilisation, dans notre laboratoire, de compétences semblable à la gouttière Invisalign, permettant un déplacement dentaire doux et progressif.</h4>
+					<h4 class="my-4 font-italic">Créé en 2009, notre laboratoire dentaire accompagne depuis près de 8 ans de nombreux médecins répartis au Burkina-Faso et à travers le monde pour toute réalisation en orthodontie esthétique (gouttière orthodontie).
+						   Les avancées techniques visant la production d’un appareil dentaire transparent, ont conduit à l’utilisation, dans notre laboratoire, de compétences semblable à la gouttière Invisalign, permettant un déplacement dentaire doux et progressif.</h4>
 					<p>
 						Nous sommes équipés des dernières innovations technologiques (numérisation des dents, laser, logiciel de traitement 3SHAPE®, imprimante 3D Printer Stratasys leader mondial de l’impression 3D) et pratiquons quotidiennement les meilleures solutions techniques des nouvelles générations numériques..</p>
 					<div class="readmore-w3-agileits mt-md-5 mt-4">
-						<a href="single.html" class="w3ls-button-agile text-dark">Lire Plus</a>
+					<a href="{{url('A-propos')}}" class="w3ls-button-agile text-dark">Lire Plus</a>
 					</div>
 				</div>
 			</div>
@@ -584,7 +575,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="price-bottom p-4">
 						<h4 class="text-dark mb-3">Diagnostique de l'hémoglobineA</h4>
-						<h6>Dans le cas de la drépanocytose (anomalie héréditaire de l'hémoglobine), le diagnostic se fait par l'observation des globules rouges. </h6>
+						<h6>Dans le cas de la drépanocytose (anomalie héréditaire de l'hémoglobine),
+							 le diagnostic se fait par l'observation des globules rouges.Lhémoglobine est un ensemble de protéine contenue dans les globules rouges et qui a pour fonction 
+							 le transport de loxygène contenu dans les poumons vers les tissus </h6>
 						<a href="single.html">
 							<i class="fa fa-user mr-2"></i>Posté par Médic</a>
 					</div>
@@ -641,7 +634,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="row">
 				<div class="col-lg-6 w3ls-wthree-screen text-center">
-					<img src="images/bébé.jpg" alt="" class="img-fluid">
+					<img src="images/b5.PNG" alt="" class="img-fluid">
 				</div>
 				<div class="col-lg-6 w3ls-wthree-texts mt-5">
 					<div class="row icons-screen">
@@ -709,19 +702,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="nav-w3-l">
 							<ul class="list-unstyled">
 								<li>
-									<a href="index.html">Accueil</a>
+									<a href="{{url('/')}}">Accueil</a>
 								</li>
 								<li class="mt-2">
-									<a href="about.html">A propos</a>
+									<a href="{{ url('A-propos')}}">A propos</a>
 								</li>
 								<li class="mt-2">
-									<a href="gallery.html">Pages</a>
+									<a href="#">Pages</a>
 								</li>
 								<li class="mt-2">
-									<a href="appointment.html">Formulaire</a>
+									<a href="{{ url('rdv')}}">Rendez-Vous</a>
 								</li>
 								<li class="mt-2">
-									<a href="contact.html">Comptes</a>
+									<a href="{{ url('Contact')}}">Contact</a>
 								</li>
 							</ul>
 						</div>

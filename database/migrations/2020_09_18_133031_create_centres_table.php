@@ -14,7 +14,7 @@ class CreateCentresTable extends Migration
     public function up()
     {
         Schema::create('centres', function (Blueprint $table) {
-            $table->increments('nummatricule');
+            $table->increments('id');
             $table->unsignedInteger('ville_id');
             $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade');
             $table->string('nom');

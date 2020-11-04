@@ -111,7 +111,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="container">
 					<!-- logo -->
 					<h1>
-					<a class="navbar-brand font-weight-bold font-italic" href="{{('/')}}">
+					<a class="navbar-brand font-weight-bold font-italic" href="{{url('/')}}">
 							<span>M</span>edic
 							<i class="fas fa-syringe"></i>
 						</a>
@@ -123,39 +123,55 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
 					<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-lg-auto">
-							<li class="nav-item active mt-lg-0 mt-3">
-								<a class="nav-link" href="{{url('accueil')}}">Accueil
-										<span class="sr-only">(current)</span>
-									</a>
-								</li>
-								<li class="nav-item mx-lg-4 my-lg-0 my-3">
-								<a class="nav-link" href="{{url('A-propos')}}">A propos</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-										aria-haspopup="true" aria-expanded="false">
-										Pages
-									</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	
-										<a class="dropdown-item scroll" href="#services">Services</a>
-									<a class="dropdown-item" href="{{url('gallerie')}}">Gallerie</a>
-										<a class="dropdown-item scroll" href="#blog">Blog</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="{{url('Single')}}">Single Page</a>
+							<li class="nav-item mt-lg-0 mt-3">
+							<a class="nav-link" href="{{url('/')}}">Accueil
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item mx-lg-4 my-lg-0 my-3">
+							<a class="nav-link" href="{{ url('A-propos')}}">A propos</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+								    aria-haspopup="true" aria-expanded="false">Pages
+								</a>
+								
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+									<a class="dropdown-item scroll" href="#services">Services</a>
+									<a class="dropdown-item" href="{{ url('Gallerie')}}">Gallerie</a>
+									<a class="dropdown-item scroll" href="#blog">Blog</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="{{ url('Single')}}">Page Unique</a>
 									</div>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{url('Contact')}}">Contact</a>
-								 </li> 
-						</ul>
+							</li>
+							<li class="nav-item mx-lg-4 my-lg-0 my-3">
+								<a class="nav-link" href="{{url('create-rdv')}}">Rendez-Vous</a>
+							</li>
+						
+							<br>
+					
+					
+							<li class="nav-item">
+								<a class="nav-link" href="{{ url('Contact')}}">Contact</a>
+							</li> 
+							
+						
+							
+						 
+						
 						<!-- login -->
+						
+						<!-- //login -->
 						@guest
 						
 						@if (Route::has('register'))
 						<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
 							<i class="fas fa-user"></i>Connexion</a>
 						@endif
+			
+				
+							 
 					@else
 						<li class="nav-item dropdown">
 								<a href="#" class="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
@@ -174,8 +190,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</form>
 							</div>
 						</li>
+					
 						@endguest
-						<!-- //login -->
+						</ul>
 					</div>
 				</div>
 			</nav>
@@ -193,23 +210,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="modal-body">
 						<div class="login px-4 mx-auto mw-100">
-							<h5 class="text-center mb-4">Login Now</h5>
-							<form action="#" method="post">
+							<h5 class="text-center mb-4">Connexion</h5>
+							<form action="{{ route('login') }}" method="post">
+								@csrf
 								<div class="form-group">
-									<label>Your Name</label>
-									<input type="text" class="form-control" name="name" placeholder="" required="">
+									<label>Email</label>
+									<input type="email" class="form-control" name="email" placeholder="" required="">
 								</div>
 								<div class="form-group">
-									<label class="mb-2">Password</label>
+									<label class="mb-2">Mot de passe</label>
 									<input type="password" class="form-control" name="password" placeholder="" required="">
 								</div>
-								<button type="submit" class="btn submit mb-4">Login</button>
+								{{-- <div class="form-group">
+									<label class="mb-2">Statu</label>
+									<select type="text" class="form-control"  name="statu" placeholder="" required="">
+					                </select>
+								</div> --}}
+								<button type="submit" class="btn submit mb-4">Connexion</button>
 								<p class="forgot-w3ls text-center pb-4">
-									<a href="#" class="text-white">Forgot your password?</a>
+									<a href="{{route('register')}}" class="text-white">Mot de passe oublié?</a>
 								</p>
 								<p class="account-w3ls text-center pb-4">
-									Don't have an account?
-									<a href="#" data-toggle="modal" data-target="#exampleModalCenter2">Create one now</a>
+									Avez vous un compte?
+									<a href="{{route('register')}}" >Créer un compte</a>
 								</p>
 							</form>
 						</div>
@@ -276,7 +299,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<li class="breadcrumb-item">
 					<a href="index.html">Home</a>
 				</li>
-				<li class="breadcrumb-item active" aria-current="page">Single Page</li>
+				<li class="breadcrumb-item active" aria-current="page">Page Unique</li>
 			</ol>
 		</div>
 	</div>
@@ -286,7 +309,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="single-w3l py-5">
 		<div class="container py-xl-5 py-lg-3">
 			<div class="w3ls-titles text-center mb-5">
-				<h3 class="title">Single Page</h3>
+				<h3 class="title">Page Unique</h3>
 				<span>
 					<i class="fas fa-user-md"></i>
 				</span>
@@ -1211,19 +1234,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="nav-w3-l">
 							<ul class="list-unstyled">
 								<li>
-									<a href="index.html">Accueil</a>
+									<a href="{{url('/')}}">Accueil</a>
 								</li>
 								<li class="mt-2">
-									<a href="about.html">A propos</a>
+									<a href="{{ url('A-propos')}}">A propos</a>
 								</li>
 								<li class="mt-2">
-									<a href="gallery.html">Pages</a>
+									<a href="#">Pages</a>
 								</li>
 								<li class="mt-2">
-									<a href="appointment.html">Formulaire</a>
+									<a href="{{ url('rdv')}}">Rendez-Vous</a>
 								</li>
 								<li class="mt-2">
-									<a href="contact.html">Comptes</a>
+									<a href="{{ url('Contact')}}">Contact</a>
 								</li>
 							</ul>
 						</div>
